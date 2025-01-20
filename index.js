@@ -1,25 +1,12 @@
 const express = require("express")
-
+const {userRouter} = require("./routes/user")
+const {courseRouter} = require("./routes/courses")
+const {adminRouter} = require("./routes/admin")
 const app = express();
 
-app.get('/user/signup',function (req,res){
 
-})
-
-app.get('/user/signin', function(req,res){
-
-})
-
-app.get('/user/purchases', function(req,res){
-
-})
-
-app.get('/courses', function(req, res){
-
-})
-
-app.post('course/purchase', function(req,res){
-    
-})
+app.use("api/v1/user", userRouter);
+app.use("api/v1/courses", courseRouter);
+app.use("api/v1/admin",adminRouter);
 
 app.listen(3000);
